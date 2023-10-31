@@ -8,7 +8,7 @@ import { setTheme } from 'ngx-bootstrap/utils';
 })
 export class AppComponent {
 
-  title = 'angular_learn_step_by_step';
+  title = 'angular_anime_quotes';
 
   constructor() {
     setTheme('bs5'); // or 'bs4'
