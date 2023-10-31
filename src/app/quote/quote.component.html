@@ -1,0 +1,43 @@
+<div class="card mx-auto shadow" style="max-width: 600px">
+  <div class="card-header">
+    <div class="text-center card-title mb-0 h2">Anime Quotes</div>
+  </div>
+  <div class="card-body">
+    <figure class="text-center">
+      <blockquote class="fs-5">
+        <p>
+          <app-icon iconName="double-quotes-left"></app-icon>
+          {{ this.quote?.quote }}
+          <app-icon iconName="double-quotes-right"></app-icon>
+        </p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        <em>{{ this.quote?.character }}</em> in
+        <cite class="fw-bold" title="Source Title">{{
+          this.quote?.anime
+        }}</cite>
+      </figcaption>
+    </figure>
+    <button
+      class="btn btn-primary w-100 shadow-sm"
+      (click)="getQuote(true)"
+      [disabled]="fetching"
+    >
+      <app-icon
+        [@rotatedState]="refreshRotateState"
+        iconName="refresh"
+      ></app-icon>
+      Refresh
+    </button>
+    <!-- <div class="alert alert-primary d-flex align-items-center" role="alert">
+
+      <div>An example alert with an icon</div>
+    </div> -->
+    <div class="mt-2" *ngIf="errorMessage">
+      <alert type="danger" [dismissible]="true">
+        <strong><app-icon iconName="warning"></app-icon> Network Error!</strong>
+        {{ errorMessage }}
+      </alert>
+    </div>
+  </div>
+</div>
